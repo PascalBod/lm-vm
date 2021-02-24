@@ -4,6 +4,7 @@
 * [Prerequisites](#prerequisites)
 * [VirtualBox installation](#virtualboxInstallation)
 * [Creation of the VM](#creationOfTheVm)
+* [Exporting an appliance](#exportingAnAppliance)
 
 <a name="overview"></a>
 # Overview
@@ -75,3 +76,17 @@ $ sudo adduser developer dialout
 Reboot: main menu and **Quit > Restart**.
 
 You can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
+
+<a name="exportingTheAppliance"></a>
+# Exporting the appliance
+
+Export a copy of the virtual machine as it is now, so that next time you want to set up an environment based on this type of VM, you don't have to go through all the steps above:
+* shutdown Linux
+* in VirtualBox Manager, select **File > Export Appliance...**
+* select the virtual machine
+* click on **Next >** button
+* for **Format**, I use **Open Virtualization Format 2.0**
+* click on **Next >** button
+* click on **Export** button
+
+Save the resulting `.ova` file in a safe place. Next time you need to create a new VM, import it from VirtualBox Manager with **File > Import Appliance...**.
