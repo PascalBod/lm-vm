@@ -77,8 +77,8 @@ Reboot: main menu and **Quit > Restart**.
 
 You can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
 
-<a name="exportingTheAppliance"></a>
-# Exporting the appliance
+<a name="exportingAnAppliance"></a>
+# Exporting an appliance
 
 Export a copy of the virtual machine as it is now, so that next time you want to set up an environment based on this type of VM, you don't have to go through all the steps above:
 * shutdown Linux
