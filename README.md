@@ -66,7 +66,7 @@ For the system restore utility, click on **Ignore this report**. Close the windo
 
 Click on the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click on **OK** button. Click on the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click on **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click on **Install Updates** button, and accept additional changes.
 
-To grant access to the virtual serial link that will be used to program the NUCLEO board, add the user to the dialout group:
+To grant access to the virtual serial link that will be used to program the microcontroller board, add the user to the dialout group:
 
 ```shell
 $ sudo adduser developer dialout
