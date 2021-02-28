@@ -41,7 +41,7 @@ Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO fil
 * **Name and operating system**:
   * **Name**: `LinuxMint20.1` (or anything you prefer)
   * **Type**: **Linux** (should have been set to this value by default)
-  * **Version**: **Ubuntu (64-bit)** (should havebeen set to this value by default)
+  * **Version**: **Ubuntu (64-bit)** (should have been set to this value by default)
 * **Memory size**: 16384 MB
 * select **Create a virtual hard disk now**
   * select **VDI**
