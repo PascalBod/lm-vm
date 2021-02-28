@@ -33,11 +33,27 @@ Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices.
 <a name="creationOfTheVm"></a>
 # Creation of the VM
 
-[Download Linux Mint 20.1, MATE edition](https://linuxmint.com/download.php).
+[Download Linux Mint 20.1, MATE edition](https://linuxmint.com/download.php) ISO image.
 
 [Verify the integrity of the downloaded file](https://linuxmint.com/verify.php).
 
-Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO file previously downloaded. Set memory size to 16 GB and file size to 30 GB.
+Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO file previously downloaded. Set configuration parameters to following values:
+* **Name and operating system**:
+  * **Name**: `LinuxMint20.1` (or anything you prefer)
+  * **Type**: **Linux** (should have been set to this value by default)
+  * **Version**: **Ubuntu (64-bit)** (should havebeen set to this value by default)
+* **Memory size**: 16384 MB
+* select **Create a virtual hard disk now**
+  * select **VDI**
+  * select **Dynamically allocated**
+  * set size to 30 GB
+
+Then set following settings parameters:
+* **General > Advanced > Shared Clipboard**: **Bidirectional**
+* **System > Processor > Processor(s)**: set to 2 if your host system CPU has several processors
+* **Display > Screen > Video Memory**: set it to 128 MB
+
+Start the virtual machine, selecting the Linux Mint 20.1 ISO image previously downloaded.
 
 Wait for Linux desktop to be displayed.
 
@@ -67,11 +83,34 @@ For the system restore utility, click on **Ignore this report**. Close the windo
 
 Click on the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click on **OK** button. Click on the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click on **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click on **Install Updates** button, and accept additional changes.
 
-To grant access to the virtual serial link that will be used to program the microcontroller board, add the user to the dialout group:
+To grant access to the virtual serial link that will be used to program the microcontroller boards, add the user to the *dialout* group:
 
 ```shell
 $ sudo adduser developer dialout
 ```
+
+If you want to share files with the host machine without file ownership trouble, add the user to the *vboxsf* group:
+
+```shell
+$ sudo adduser developer vboxsf
+```
+
+I don't like the default configuration of the terminal, so I modify it:
+* start a terminal (main menu and **Terminal**, or the terminal icon on the lower left-hand corner)
+* **Edit > Profile Preferences** and ensure that you are on the **General** tab
+* select **Use custom default terminal size** and set **Default size** to 120
+* go to the **Colors** tab
+* untick **Use colors from system theme**
+
+And I add the *System Monitor* applet to the Panel:
+* right-click on the Panel
+* select **Add to Panel...**
+* select **System Monitor**
+* click on the **Add** button and close the window
+* right-click on the applet that was added to the Panel
+* select **Preferences**
+* tick **Memory** and **Network**
+* close the window
 
 Reboot: main menu and **Quit > Restart**.
 
