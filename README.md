@@ -4,6 +4,7 @@
 * [Prerequisites](#prerequisites)
 * [VirtualBox installation](#virtualboxInstallation)
 * [Creation of the VM](#creationOfTheVm)
+* [Update](#update)
 * [Exporting an appliance](#exportingAnAppliance)
 
 <a name="overview"></a>
@@ -115,6 +116,11 @@ And I add the *System Monitor* applet to the Panel:
 Reboot: main menu and **Quit > Restart**.
 
 You can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
+
+<a name="update"></a>
+# Update
+
+When all packages are up-to-date, the update manager icon (see above) does not display the orange disk. If this disk appears, it means it's time to perform an update. To do this, click on the icon (see above).
 
 <a name="exportingAnAppliance"></a>
 # Exporting an appliance
