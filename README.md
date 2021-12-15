@@ -14,7 +14,7 @@ I create a distinct virtual machine for each of my embedded software projects. T
 
 The virtual machine uses VirtualBox, and runs Linux Mint, a Linux distribution based on Ubuntu.
 
-This short guide describes how I create it.
+This short guide describes how I create the virtual machine.
 
 <a name="prerequisites"></a>
 # Prerequisites
@@ -29,7 +29,7 @@ This short guide describes how I create it.
 <a name="virtualboxInstallation"></a>
 # VirtualBox installation
 
-[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). Version at time of writing is 6.1.22.
+[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). Version at time of writing is 6.1.30.
 
 Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices.
 
@@ -77,7 +77,7 @@ At the end of the installation, restart. When you get the message **Please remov
 
 Log in as *developer* user. Close the **Welcome to Linux Mint** window.
 
-In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. Double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
+In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. If a window inviting you to run the installation does not appear, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
 
 Once the guest additions are installed, you can right-click on the CD icon and select **Eject**.
 
@@ -118,7 +118,7 @@ And I add the *System Monitor* applet to the Panel:
 
 Reboot: main menu and **Quit > Restart**.
 
-You can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
+Once the VM is rebooted, you can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
 
 <a name="update"></a>
 # Update
