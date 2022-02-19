@@ -93,6 +93,13 @@ To grant access to the virtual serial link that will be used to program the micr
 $ sudo adduser developer dialout
 ```
 
+You also have to add the user to the *vboxusers* group, in order to let the virtual machine capture the various devices you'll connect to the host USB ports:
+
+```shell
+$ sudo adduser developer vboxusers
+```
+
+
 If you want to share files with the host machine without file ownership trouble, add the user to the *vboxsf* group:
 
 ```shell
