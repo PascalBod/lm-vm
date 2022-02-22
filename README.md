@@ -29,27 +29,27 @@ This short guide describes how I create the virtual machine.
 <a name="virtualboxInstallation"></a>
 # VirtualBox installation
 
-[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). Version at time of writing is 6.1.30.
+[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). Version at time of writing is 6.1.32.
 
 Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices.
 
 <a name="creationOfTheVm"></a>
 # Creation of the VM
 
-[Download Linux Mint, MATE edition](https://linuxmint.com/download.php) ISO image. Version at time of writing is 20.2.
+[Download Linux Mint, MATE edition](https://linuxmint.com/download.php) ISO image. Version at time of writing is 20.3.
 
-[Verify the integrity of the downloaded file](https://linuxmint.com/verify.php).
+Verify the integrity of the downloaded file (read MATE edition page).
 
 Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO file previously downloaded. Set configuration parameters to following values:
 * **Name and operating system**:
   * **Name**: `LinuxMint` (or anything you prefer)
   * **Type**: **Linux**
   * **Version**: **Ubuntu (64-bit)**
-* **Memory size**: 16384 MB
+* **Memory size**: 8192 MB or 16384 MB (see above comment about STM32CubeIDE)
 * select **Create a virtual hard disk now**
   * select **VDI**
   * select **Dynamically allocated**
-  * set size to 30 GB
+  * set size to 30 GB (specify more if you plan to create lot of projects)
 
 Then set following settings parameters:
 * **General > Advanced > Shared Clipboard**: **Bidirectional**
@@ -68,9 +68,9 @@ Double click on the **Install Linux Mint** icon. Following information or select
 * Keyboard layout: the one for your keyboard
 * Install multimedia codecs
 * Erase disk and install Linux Mint
-* Name: Developer
-* Computer's name: LMVM
-* Username: developer
+* Name: Developer (or any other name)
+* Computer's name: LMVM (or any other name)
+* Username: developer (or any other username - the text below uses `developer`)
 * Password: choose one
 
 At the end of the installation, restart. When you get the message **Please remove the installation medium, then press ENTER:**, click on Enter key.
@@ -93,17 +93,16 @@ To grant access to the virtual serial link that will be used to program the micr
 $ sudo adduser developer dialout
 ```
 
-You also have to add the user to the *vboxusers* group, in order to let the virtual machine capture the various devices you'll connect to the host USB ports:
-
-```shell
-$ sudo adduser developer vboxusers
-```
-
-
 If you want to share files with the host machine without file ownership trouble, add the user to the *vboxsf* group:
 
 ```shell
 $ sudo adduser developer vboxsf
+```
+
+In the host machine, you also have to add the user to the *vboxusers* group, in order to let the virtual machine capture the various devices you'll connect to the host USB ports:
+
+```shell
+$ sudo adduser developer vboxusers
 ```
 
 I don't like the default configuration of the terminal, so I modify it:
