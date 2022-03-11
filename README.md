@@ -1,13 +1,7 @@
-#### Table of contents
+### Table of contents
 
-* [Overview](#overview)
-* [Prerequisites](#prerequisites)
-* [VirtualBox installation](#virtualboxInstallation)
-* [Creation of the VM](#creationOfTheVm)
-* [Update](#update)
-* [Exporting an appliance](#exportingAnAppliance)
+Click on the ![](images/tocIcon.png) icon above.
 
-<a name="overview"></a>
 # Overview
 
 I create a distinct virtual machine for each of my embedded software projects. Thus I don't have to handle potential configuration conflicts.
@@ -16,7 +10,6 @@ The virtual machine uses VirtualBox, and runs Linux Mint, a Linux distribution b
 
 This short guide describes how I create the virtual machine.
 
-<a name="prerequisites"></a>
 # Prerequisites
 
 * Hardware: a 64-bit computer with enough memory so that the VM can be granted 16 GB, with a few tens of GB available on the disk, and one free USB A port (for programming the microcontroller board)
@@ -26,14 +19,12 @@ This short guide describes how I create the virtual machine.
 
 **Note:** I assign 16 GB of RAM to a VM where I run STM32CubeIDE, which requires quite a lot of memory. For many other applications, 8 GB are enough.
 
-<a name="virtualboxInstallation"></a>
 # VirtualBox installation
 
 [Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). Version at time of writing is 6.1.32.
 
-Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices.
+Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices. The link to the Extension Pack is on the [above download page](https://www.virtualbox.org/wiki/Downloads).
 
-<a name="creationOfTheVm"></a>
 # Creation of the VM
 
 [Download Linux Mint, MATE edition](https://linuxmint.com/download.php) ISO image. Version at time of writing is 20.3.
@@ -46,7 +37,7 @@ Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO fil
   * **Type**: **Linux**
   * **Version**: **Ubuntu (64-bit)**
 * **Memory size**: 8192 MB or 16384 MB (see above comment about STM32CubeIDE)
-* select **Create a virtual hard disk now**
+* select **Create a virtual hard disk now** and click on **Create** button
   * select **VDI**
   * select **Dynamically allocated**
   * set size to 30 GB (specify more if you plan to create lot of projects)
@@ -126,12 +117,10 @@ Reboot: main menu and **Quit > Restart**.
 
 Once the VM is rebooted, you can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
 
-<a name="update"></a>
 # Update
 
 When all packages are up-to-date, the update manager icon (see above) does not display the orange disk. If this disk appears, it means it's time to perform an update. To do this, click on the icon (see above).
 
-<a name="exportingAnAppliance"></a>
 # Exporting an appliance
 
 Export a copy of the virtual machine as it is now, so that next time you want to set up an environment based on this type of VM, you don't have to go through all the steps above:
