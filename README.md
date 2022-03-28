@@ -17,7 +17,7 @@ This short guide describes how I create the virtual machine.
   * basic knowledge of Linux (knowing the most common commands...)
   * basic knowledge of VirtualBox (knowing how to create a virtual machine...)
 
-**Note:** I assign 16 GB of RAM to a VM where I run STM32CubeIDE, which requires quite a lot of memory. For many other applications, 8 GB are enough.
+**Note:** I assign 16 GB of RAM to a VM where I run STM32CubeIDE, which requires quite a lot of memory. For many other applications, 4 GB or 8 GB are enough.
 
 # VirtualBox installation
 
@@ -36,7 +36,7 @@ Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO fil
   * **Name**: `LinuxMint` (or anything you prefer)
   * **Type**: **Linux**
   * **Version**: **Ubuntu (64-bit)**
-* **Memory size**: 8192 MB or 16384 MB (see above comment about STM32CubeIDE)
+* **Memory size**: 4096 MB, 8192 MB, 16384 MB, or any other value, depending on the future use of the VM (see above comment about STM32CubeIDE)
 * select **Create a virtual hard disk now** and click on **Create** button
   * select **VDI**
   * select **Dynamically allocated**
