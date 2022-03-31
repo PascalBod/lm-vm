@@ -68,7 +68,7 @@ At the end of the installation, restart. When you get the message **Please remov
 
 Log in as *developer* user. Close the **Welcome to Linux Mint** window.
 
-In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. If a window inviting you to run the installation does not appear, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
+In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. A window inviting you to run the installation should be displayed.If this is not the case, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
 
 Once the guest additions are installed, you can right-click on the CD icon and select **Eject**.
 
