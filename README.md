@@ -12,39 +12,38 @@ This short guide describes how I create the virtual machine.
 
 # Prerequisites
 
-* Hardware: a 64-bit computer with enough memory so that the VM can be granted 16 GB, with a few tens of GB available on the disk, and one free USB A port (for programming the microcontroller board)
+* Hardware: a 64-bit computer with enough memory so that the VM can be granted up to 16 GB (depending on the development environment that will be installed), with a few tens of GB available on the disk, and one free USB A port (for programming the microcontroller board)
 * Developer: 
-  * basic knowledge of Linux (knowing the most common commands...)
-  * basic knowledge of VirtualBox (knowing how to create a virtual machine...)
+  * Basic knowledge of Linux (knowing the most common commands...)
+  * Basic knowledge of VirtualBox (knowing how to create a virtual machine...)
 
 **Note:** I assign 16 GB of RAM to a VM where I run STM32CubeIDE, which requires quite a lot of memory. For many other applications, 4 GB or 8 GB are enough.
 
 # VirtualBox installation
 
-[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). Version at time of writing is 6.1.32.
+[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). At time of writing, the latest version is 7.0.4.
 
 Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices. The link to the Extension Pack is on the [above download page](https://www.virtualbox.org/wiki/Downloads).
 
 # Creation of the VM
 
-[Download Linux Mint, MATE edition](https://linuxmint.com/download.php) ISO image. Version at time of writing is 20.3.
+[Download Linux Mint, MATE edition](https://linuxmint.com/download.php) ISO image. Version at time of writing is 21.1.
 
-Verify the integrity of the downloaded file (read MATE edition page).
+Verify the integrity of the downloaded file.
 
 Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO file previously downloaded. Set configuration parameters to following values:
 * **Name and operating system**:
   * **Name**: `LinuxMint` (or anything you prefer)
   * **Type**: **Linux**
   * **Version**: **Ubuntu (64-bit)**
-* **Memory size**: 4096 MB, 8192 MB, 16384 MB, or any other value, depending on the future use of the VM (see above comment about STM32CubeIDE)
-* select **Create a virtual hard disk now** and click on **Create** button
-  * select **VDI**
-  * select **Dynamically allocated**
-  * set size to 30 GB (specify more if you plan to create lot of projects)
+* **Hardware**:
+    * **Base Memory**: 4096 MB, 8192 MB, 16384 MB, or any other value, depending on the future use of the VM (see above comment about STM32CubeIDE)
+    * **Processors**: depending on your host machine. I set it to **2**
+* **Virtual Hard disk**:
+    * Select **Create a Virtual Hard Disk Now**. I set size to 40 GB
 
 Then set following settings parameters:
 * **General > Advanced > Shared Clipboard**: **Bidirectional**
-* **System > Processor > Processor(s)**: set to 2 if your host system CPU has several processors
 * **Display > Screen > Video Memory**: set it to 128 MB
 * **USB**: select **USB 3.0**
 
@@ -77,8 +76,6 @@ Click on the system report icon, in the lower right-hand corner: ![icon](images/
 For the system restore utility, click on **Ignore this report**. Close the window.
 
 Click on the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click on **OK** button. Click on the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click on **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click on **Install Updates** button, and accept additional changes.
-
-At the end of the update, the update manager invites you to reboot. Before doing it, close the manager's window and perform the few steps below.
 
 To grant access to the virtual serial link that will be used to program the microcontroller boards, open a terminal (main menu and **Terminal**, or the terminal icon on the lower left-hand corner), and add the user to the *dialout* group:
 
@@ -117,8 +114,6 @@ And I add the *System Monitor* applet to the Panel:
 
 Reboot: main menu and **Quit > Restart**.
 
-Once the VM is rebooted, you can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
-
 # Update
 
 When all packages are up-to-date, the update manager icon (see above) does not display the orange disk. If this disk appears, it means it's time to perform an update. To do this, click on the icon (see above).
@@ -132,6 +127,6 @@ Export a copy of the virtual machine as it is now, so that next time you want to
 * click on **Next >** button
 * for **Format**, I use **Open Virtualization Format 2.0**
 * click on **Next >** button
-* click on **Export** button
+* click on **Finish** button
 
 Save the resulting `.ova` file in a safe place. Next time you need to create a new VM, import it from VirtualBox Manager with **File > Import Appliance...**.
