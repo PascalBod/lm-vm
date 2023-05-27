@@ -21,9 +21,7 @@ This short guide describes how I create the virtual machine.
 
 # VirtualBox installation
 
-[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). At time of writing, the latest version is 7.0.4.
-
-Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices. The link to the Extension Pack is on the [above download page](https://www.virtualbox.org/wiki/Downloads).
+[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). At time of writing, the latest version is 7.0.8.
 
 # Creation of the VM
 
@@ -34,22 +32,19 @@ Verify the integrity of the downloaded file.
 Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO file previously downloaded. Set configuration parameters to following values:
 * **Name and operating system**:
   * **Name**: `LinuxMint` (or anything you prefer)
-  * **Type**: **Linux**
-  * **Version**: **Ubuntu (64-bit)**
+  * **ISO Image**: the Linux Mint ISO file
+  * **Skip Unattended Installation**: check
 * **Hardware**:
     * **Base Memory**: 4096 MB, 8192 MB, 16384 MB, or any other value, depending on the future use of the VM (see above comment about STM32CubeIDE)
     * **Processors**: depending on your host machine. I set it to **2**
-* **Virtual Hard disk**:
+* **Hard disk**:
     * Select **Create a Virtual Hard Disk Now**. I set size to 40 GB
 
-Then set following settings parameters:
-* **General > Advanced > Shared Clipboard**: **Bidirectional**
-* **Display > Screen > Video Memory**: set it to 128 MB
-* **USB**: select **USB 3.0**
+Start the virtual machine.
 
-Start the virtual machine, selecting the Linux Mint ISO image previously downloaded.
+When GNU GRUB menu is displayed, click the Enter key.
 
-Wait for Linux desktop to be displayed.
+Wait for Linux Mint desktop to be displayed.
 
 If your keyboard layout is not QWERTY, click on the main-menu icon ![icon](images/linuxMintMenuIcon.png) (in the lower left-hand corner), select **Control Center**, click on **Keyboard** icon, select **Layouts** tab, add the layout for your keyboard, and remove the existing **English (US)** layout. Close the Control Center windows.
 
@@ -63,19 +58,28 @@ Double click on the **Install Linux Mint** icon. Following information or select
 * Username: developer (or any other username - the text below uses `developer`)
 * Password: choose one
 
-At the end of the installation, restart. When you get the message **Please remove the installation medium, then press ENTER:**, click on Enter key.
+At the end of the installation, restart. When you get the message **Please remove the installation medium, then press ENTER:**, click the Enter key.
 
 Log in as *developer* user. Close the **Welcome to Linux Mint** window.
 
-In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. A window inviting you to run the installation should be displayed.If this is not the case, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
+In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. A window inviting you to run the installation should be displayed. If this is not the case, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
 
 Once the guest additions are installed, you can right-click on the CD icon and select **Eject**.
 
-Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window that appears, select **System reports > Install language packs**, click on **Install the Language Packs** button, and accept the installation. The requested password is the one you chose at installation time.
+Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window that appears, select **System reports > Install language packs**, click the **Install the Language Packs** button, and accept the installation. The requested password is the one you chose at installation time.
 
-For the system restore utility, click on **Ignore this report**. Close the window.
+For the system restore utility, click **Ignore this report**. Close the window.
 
-Click on the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click on **OK** button. Click on the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click on **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click on **Install Updates** button, and accept additional changes.
+Click the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click the **OK** button. Click the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click the **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click the **Install Updates** button, and accept additional changes.
+
+When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu > Quit > Shut Down**).
+
+With VirtualBox menu, set following settings parameters for the VM:
+* **General > Advanced > Shared Clipboard**: **Bidirectional**
+* **Display > Screen > Video Memory**: set it to 128 MB
+* **USB**: select **USB 3.0*
+
+Start the VM.
 
 To grant access to the virtual serial link that will be used to program the microcontroller boards, open a terminal (main menu and **Terminal**, or the terminal icon on the lower left-hand corner), and add the user to the *dialout* group:
 
@@ -95,24 +99,32 @@ In the host machine, you also have to add the user to the *vboxusers* group, in 
 $ sudo adduser developer vboxusers
 ```
 
+You can resize the VM window. If you want to make it full screen, press Right Control + F keys. Use the same keys to exit from the full-screen mode.
+
 I don't like the default configuration of the terminal, so I modify it:
-* start a terminal
+* Start a terminal
 * **Edit > Profile Preferences** and ensure that you are on the **General** tab
-* select **Use custom default terminal size** and set **Default size** to 120
-* go to the **Colors** tab
-* untick **Use colors from system theme**
+* Select **Use custom default terminal size** and set **Default size** to 120
+* Go to the **Colors** tab
+* Untick **Use colors from system theme**
 
 And I add the *System Monitor* applet to the Panel:
-* right-click on the Panel
-* select **Add to Panel...**
-* select **System Monitor**
-* click on the **Add** button and close the window
-* right-click on the applet that was added to the Panel
-* select **Preferences**
-* tick **Memory** and **Network**
-* close the window
+* Right-click on the Panel
+* Select **Add to Panel...**
+* Select **System Monitor**
+* Click on the **Add** button and close the window
+* Right-click on the applet that was added to the Panel
+* Select **Preferences**
+* Tick **Memory** and **Network**
+* Close the window
 
-Reboot: main menu and **Quit > Restart**.
+To share files between the VM and the host computer, use VirtualBox menu:
+* **Devices > Shared Folders > Shared Folders Settings...**
+* Select **Machine Folders**
+* Click the add button
+* For **Folder Path**, provide the path to the host directory that will be used to exchange files
+* Tick **Auto-mount** and **Make Permanent**
+* Click the **OK** button
 
 # Update
 
@@ -121,12 +133,20 @@ When all packages are up-to-date, the update manager icon (see above) does not d
 # Exporting an appliance
 
 Export a copy of the virtual machine as it is now, so that next time you want to set up an environment based on this type of VM, you don't have to go through all the steps above:
-* shutdown Linux Mint
-* in VirtualBox Manager, select **File > Export Appliance...**
-* select the virtual machine
-* click on **Next >** button
-* for **Format**, I use **Open Virtualization Format 2.0**
-* click on **Next >** button
-* click on **Finish** button
+* Shutdown Linux Mint
+* In VirtualBox Manager window, select **File > Export Appliance...**
+* Select the virtual machine
+* Click on **Next >** button
+* For **Format**, I use **Open Virtualization Format 2.0**
+* Click on **Next >** button
+* Click on **Finish** button
 
 Save the resulting `.ova` file in a safe place. Next time you need to create a new VM, import it from VirtualBox Manager with **File > Import Appliance...**.
+
+
+
+
+
+
+
+
