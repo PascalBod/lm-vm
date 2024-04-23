@@ -1,31 +1,37 @@
 ### Table of contents
 
-Click on the ![](images/tocIcon.png) icon above.
+Click on the ![](images/tocIcon.png) icon, on the right-hand side above.
 
 # Overview
 
-I create a distinct virtual machine for each of my embedded software projects. Thus I don't have to handle potential configuration conflicts.
+I create a distinct virtual machine for each of my embedded software projects. Thus I don't have to handle potential configuration conflicts between different development environments.
 
-The virtual machine uses VirtualBox, and runs Linux Mint, a Linux distribution based on Ubuntu.
+The virtual machine uses [*VirtualBox*](https://www.virtualbox.org/), and runs [*Linux Mint*](https://linuxmint.com/), a Linux distribution based on [*Ubuntu*](https://ubuntu.com/).
 
-This short guide describes how I create the virtual machine.
+This short guide describes how I create the virtual machine (VM).
 
 # Prerequisites
 
-* Hardware: a 64-bit computer with enough memory so that the VM can be granted up to 16 GB (depending on the development environment that will be installed), with a few tens of GB available on the disk, and one free USB A port (for programming the microcontroller board)
+* Hardware: a 64-bit computer with enough memory so that the VM can be granted up to 16 GB (depending on the development environment that will be installed), with a few tens of GB available on the disk, and one free USB A (or C) port (for programming the microcontroller boards)
 * Developer: 
   * Basic knowledge of Linux (knowing the most common commands...)
   * Basic knowledge of VirtualBox (knowing how to create a virtual machine...)
 
-**Note:** I assign 16 GB of RAM to a VM where I run STM32CubeIDE, which requires quite a lot of memory. For many other applications, 4 GB or 8 GB are enough.
+**Note:** For many development environments, 4 GB or 8 GB of memory are enough. For [*STM32CubeIDE*](https://www.st.com/en/development-tools/stm32cubeide.html), 16 GB seems to be a minimum.
 
 # VirtualBox installation
 
-[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). At time of writing, the latest version is 7.0.8.
+[Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). 
+
+My host OS being Linux Mint, I use the Ubuntu version of VirtualBox.
+
+At the time of writing, the latest version of VirtualBox is [7.0.14](https://www.virtualbox.org/wiki/Download_Old_Builds_7_0) (the 7.0.16 version has an issue).
+
+Install the Extension Pack as well.
 
 # Creation of the VM
 
-[Download Linux Mint, MATE edition](https://linuxmint.com/download.php) ISO image. Version at time of writing is 21.1.
+[Download Linux Mint, Xfce edition](https://linuxmint.com/download.php) ISO image. At the time of writing, version is 21.3.
 
 Verify the integrity of the downloaded file.
 
@@ -46,7 +52,9 @@ When GNU GRUB menu is displayed, click the Enter key.
 
 Wait for Linux Mint desktop to be displayed.
 
-If your keyboard layout is not QWERTY, click on the main-menu icon ![icon](images/linuxMintMenuIcon.png) (in the lower left-hand corner), select **Control Center**, click on **Keyboard** icon, select **Layouts** tab, add the layout for your keyboard, and remove the existing **English (US)** layout. Close the Control Center windows.
+If your keyboard layout is not QWERTY, click on the main-menu icon ![icon](images/linuxMintMenuIcon.png) (in the lower left-hand corner). Move the mouse cursor over the **Settings** category. Keeping it on the category icon, move it over the righ-hand side scrolling list. Scroll down and click the **Keyboard** item.
+
+Select the **Layout** tab. Uncheck **Use system defaults**. Add the layout for your keyboard, and remove the existing **English (US)** layout. Click the **Close** button.
 
 Double click on the **Install Linux Mint** icon. Following information or selections can be provided, when required for:
 * Language: English
@@ -62,15 +70,22 @@ At the end of the installation, restart. When you get the message **Please remov
 
 Log in as *developer* user. Close the **Welcome to Linux Mint** window.
 
-In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. A window inviting you to run the installation should be displayed. If this is not the case, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
+In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. The file manager should open, displaying a list of files. Open a terminal (main menu and **System > Xfce Terminal**, or the terminal icon on the lower left-hand corner). Go into the mounted CD image and run the Linux script as root user:
+```shell
+$ cd /media/developer/'VBox_GAs_7.0.14'
+$ sudo ./VBoxLinuxAdditions.run
+```
+The password you are then asked for is the one you chose at installation time.
 
-Once the guest additions are installed, you can right-click on the CD icon and select **Eject**.
+A window inviting you to run the installation should be displayed. If this is not the case, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
 
-Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window that appears, select **System reports > Install language packs**, click the **Install the Language Packs** button, and accept the installation. The requested password is the one you chose at installation time.
+Once the guest additions are installed, you can close the terminal, right-click the **VBox_GAs_7.0.14** device in the file explorer, select **Safely Remove** and close the file explorer window.
 
-For the system restore utility, click **Ignore this report**. Close the window.
+Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window which appears, click the **Ignore this report** button for the system restore utility. Close the system report window.
 
 Click the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click the **OK** button. Click the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click the **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click the **Install Updates** button, and accept additional changes.
+
+==> go on
 
 When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu > Quit > Shut Down**).
 
