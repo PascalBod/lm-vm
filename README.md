@@ -85,9 +85,10 @@ Click on the system report icon, in the lower right-hand corner: ![icon](images/
 
 Click the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click the **OK** button. Click the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click the **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click the **Install Updates** button, and accept additional changes.
 
+When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu**, logout icon in the top right-hand corner: ![icon](images/logoutIcon.png) and then **Shutdown**).
+
 ==> go on
 
-When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu > Quit > Shut Down**).
 
 With VirtualBox menu, set following settings parameters for the VM:
 * **General > Advanced > Shared Clipboard**: **Bidirectional**
