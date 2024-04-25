@@ -85,10 +85,7 @@ Click on the system report icon, in the lower right-hand corner: ![icon](images/
 
 Click the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click the **OK** button. Click the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click the **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click the **Install Updates** button, and accept additional changes.
 
-When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu**, logout icon in the top right-hand corner: ![icon](images/logoutIcon.png) and then **Shutdown**).
-
-==> go on
-
+When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu**, logout icon in the top right-hand corner: ![icon](images/logoutIcon.png) and then **Shut Down**).
 
 With VirtualBox menu, set following settings parameters for the VM:
 * **General > Advanced > Shared Clipboard**: **Bidirectional**
@@ -119,28 +116,35 @@ You can resize the VM window. If you want to make it full screen, press Right Co
 
 I don't like the default configuration of the terminal, so I modify it:
 * Start a terminal
-* **Edit > Profile Preferences** and ensure that you are on the **General** tab
-* Select **Use custom default terminal size** and set **Default size** to 120
+* **Edit > Profile Preferences** and ensure that you are on the **Appearance** tab
+* For **Default geometry**, set **columns** to 120
 * Go to the **Colors** tab
-* Untick **Use colors from system theme**
+* For **Resets**, select **Solarized (light)**
+* Close the window
 
 And I add the *System Monitor* applet to the Panel:
 * Right-click on the Panel
-* Select **Add to Panel...**
-* Select **System Monitor**
+* Select **Panel > Add New Items...**
+* Select **System Load Monitor**
 * Click on the **Add** button and close the window
 * Right-click on the applet that was added to the Panel
-* Select **Preferences**
-* Tick **Memory** and **Network**
+* Select **Properties**
+* Deactivate **Swap monitor**
 * Close the window
 
 To share files between the VM and the host computer, use VirtualBox menu:
 * **Devices > Shared Folders > Shared Folders Settings...**
 * Select **Machine Folders**
 * Click the add button
-* For **Folder Path**, provide the path to the host directory that will be used to exchange files
+* For **Folder Path**, select the path to the host directory that will be used to exchange files
 * Tick **Auto-mount** and **Make Permanent**
 * Click the **OK** button
+
+For the file manager, I prefer to get a list of files instead of icons. So:
+* **Edit > Preferences...**
+* In the **Display** tab, select **List View** for **View new folders using::**
+* Close the window
+* Stop and restart a file manager window
 
 # Update
 
