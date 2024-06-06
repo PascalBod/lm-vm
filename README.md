@@ -77,8 +77,6 @@ $ sudo ./VBoxLinuxAdditions.run
 ```
 The password you are then asked for is the one you chose at installation time.
 
-A window inviting you to run the installation should be displayed. If this is not the case, double-click on the CD icon that appeared on the desktop. In the file explorer window, right-click on the **VBoxLinuxAdditions.run** file and select **Run as Administrator**. The password you are then asked for is the one you chose at installation time.
-
 Once the guest additions are installed, you can close the terminal, right-click the **VBox_GAs_7.0.14** device in the file explorer, select **Safely Remove** and close the file explorer window.
 
 Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window which appears, click the **Ignore this report** button for the system restore utility. Close the system report window.
