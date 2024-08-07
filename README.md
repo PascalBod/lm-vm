@@ -92,11 +92,19 @@ With VirtualBox menu, set following settings parameters for the VM:
 
 Start the VM.
 
-To grant access to the virtual serial link that will be used to program the microcontroller boards, open a terminal (main menu and **Terminal**, or the terminal icon on the lower left-hand corner), and add the user to the *dialout* group:
+To grant access to the virtual serial link that will be used to program the microcontroller boards, open a terminal (main menu and **System > Xfce Terminal**, or the terminal icon on the lower left-hand corner), and add the user to the *dialout* group:
 
 ```shell
 $ sudo adduser developer dialout
 ```
+
+To interact with a board over the virtual serial link, install *miniterm*:
+* From the main menu: **Settings > Synaptic Package Manager**
+* Provide you password, when requested
+* Search for `pyserial`
+* In the resulting displayed list, click the square in front of **python3-serial** and select **Mark for Installation**
+* Click the **Apply** tool
+* Exit from Synaptic
 
 If you want to share files with the host machine without file ownership trouble, add the user to the *vboxsf* group:
 
