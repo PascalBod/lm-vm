@@ -100,7 +100,7 @@ $ sudo adduser developer dialout
 
 To interact with a board over the virtual serial link, install *miniterm*:
 * From the main menu: **Settings > Synaptic Package Manager**
-* Provide you password, when requested
+* Provide your password, when requested
 * Search for `pyserial`
 * In the resulting displayed list, click the square in front of **python3-serial** and select **Mark for Installation**
 * Click the **Apply** tool
