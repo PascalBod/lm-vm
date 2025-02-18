@@ -25,13 +25,11 @@ This short guide describes how I create the virtual machine (VM).
 
 My host OS being Linux Mint, I use the Ubuntu version of VirtualBox.
 
-At the time of writing, the latest version of VirtualBox is [7.0.14](https://www.virtualbox.org/wiki/Download_Old_Builds_7_0) (the 7.0.16 version has an issue).
-
-Install the Extension Pack as well.
+At the time of writing, the latest version of VirtualBox is [7.1.6](https://www.virtualbox.org/wiki/Downloads).
 
 # Creation of the VM
 
-[Download Linux Mint, Xfce edition](https://linuxmint.com/download.php) ISO image. At the time of writing, version is 21.3.
+[Download Linux Mint, Xfce edition](https://linuxmint.com/download.php) ISO image. At the time of writing, version is 22.1.
 
 Verify the integrity of the downloaded file.
 
@@ -44,7 +42,7 @@ Start VirtualBox, and create a new virtual machine, using the Linux Mint ISO fil
     * **Base Memory**: 4096 MB, 8192 MB, 16384 MB, or any other value, depending on the future use of the VM (see above comment about STM32CubeIDE)
     * **Processors**: depending on your host machine. I set it to **2**
 * **Hard disk**:
-    * Select **Create a Virtual Hard Disk Now**. I set size to 40 GB
+    * Select **Create a Virtual Hard Disk Now**. I set size to 60 GB
 
 Start the virtual machine.
 
@@ -72,16 +70,16 @@ Log in as *developer* user. Close the **Welcome to Linux Mint** window.
 
 In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. The file manager should open, displaying a list of files. Open a terminal (main menu and **System > Xfce Terminal**, or the terminal icon on the lower left-hand corner). Go into the mounted CD image and run the Linux script as root user:
 ```shell
-$ cd /media/developer/'VBox_GAs_7.0.14'
+$ cd /media/developer/VBox_GAs_7.1.6
 $ sudo ./VBoxLinuxAdditions.run
 ```
 The password you are then asked for is the one you chose at installation time.
 
-Once the guest additions are installed, you can close the terminal, right-click the **VBox_GAs_7.0.14** device in the file explorer, select **Safely Remove** and close the file explorer window.
+When execution is done, close the terminal.
 
 Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window which appears, click the **Ignore this report** button for the system restore utility. Close the system report window.
 
-Click the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click the **OK** button. Click the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click the **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click the **Install Updates** button, and accept additional changes.
+Click the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click the **OK** button. Click the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click the **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Then click the **Install Updates** button, and accept additional changes.
 
 When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu**, logout icon in the top right-hand corner: ![icon](images/logoutIcon.png) and then **Shut Down**).
 
@@ -99,12 +97,12 @@ $ sudo adduser developer dialout
 ```
 
 To interact with a board over the virtual serial link, install *miniterm*:
-* From the main menu: **Settings > Synaptic Package Manager**
-* Provide your password, when requested
+* From the main menu: **Settings > Software Manager**
 * Search for `pyserial`
-* In the resulting displayed list, click the square in front of **python3-serial** and select **Mark for Installation**
-* Click the **Apply** tool
-* Exit from Synaptic
+* Click the displayed **Python3-serial** box
+* Click the **Install** button
+* Provide your password
+* Close the Software Manager window
 
 If you want to share files with the host machine without file ownership trouble, add the user to the *vboxsf* group:
 
@@ -122,10 +120,10 @@ You can resize the VM window. If you want to make it full screen, press Right Co
 
 I don't like the default configuration of the terminal, so I modify it:
 * Start a terminal
-* **Edit > Profile Preferences** and ensure that you are on the **Appearance** tab
+* **Edit > Preferences** and ensure that you are on the **Appearance** tab
 * For **Default geometry**, set **columns** to 120
 * Go to the **Colors** tab
-* For **Resets**, select **Solarized (light)**
+* For **Presets**, select **Tango**
 * Close the window
 
 And I add the *System Monitor* applet to the Panel:
@@ -135,7 +133,7 @@ And I add the *System Monitor* applet to the Panel:
 * Click on the **Add** button and close the window
 * Right-click on the applet that was added to the Panel
 * Select **Properties**
-* Deactivate **Swap monitor**
+* Deactivate **Swap monitor** and **Uptime monitor**
 * Close the window
 
 To share files between the VM and the host computer, use VirtualBox menu:
@@ -162,9 +160,7 @@ Export a copy of the virtual machine as it is now, so that next time you want to
 * Shutdown Linux Mint
 * In VirtualBox Manager window, select **File > Export Appliance...**
 * Select the virtual machine
-* Click on **Next >** button
-* For **Format**, I use **Open Virtualization Format 2.0**
-* Click on **Next >** button
+* For **Format settings > Format**, I use **Open Virtualization Format 2.0**
 * Click on **Finish** button
 
 Save the resulting `.ova` file in a safe place. Next time you need to create a new VM, import it from VirtualBox Manager with **File > Import Appliance...**.
