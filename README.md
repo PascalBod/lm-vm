@@ -29,7 +29,7 @@ At the time of writing, the latest version of VirtualBox is [7.1.6](https://www.
 
 # Creation of the VM
 
-[Download Linux Mint, Xfce edition](https://linuxmint.com/download.php) ISO image. At the time of writing, version is 22.1.
+[Download Linux Mint, Cinnamon edition](https://linuxmint.com/download.php) ISO image. At the time of writing, version is 22.1.
 
 Verify the integrity of the downloaded file.
 
@@ -50,9 +50,9 @@ When GNU GRUB menu is displayed, click the Enter key.
 
 Wait for Linux Mint desktop to be displayed.
 
-If your keyboard layout is not QWERTY, click on the main-menu icon ![icon](images/linuxMintMenuIcon.png) (in the lower left-hand corner). Move the mouse cursor over the **Settings** category. Keeping it on the category icon, move it over the righ-hand side scrolling list. Scroll down and click the **Keyboard** item.
+If your keyboard layout is not QWERTY, click on the main-menu icon ![icon](images/linuxMintMenuIcon.png) (in the lower left-hand corner). Move the mouse cursor over the **Preferences** category. Keeping it on the category icon, move it over the righ-hand side scrolling list. Scroll down and click the **Keyboard** item.
 
-Select the **Layout** tab. Uncheck **Use system defaults**. Add the layout for your keyboard, and remove the existing **English (US)** layout. Click the **Close** button.
+Select the **Layouts** tab. Add the layout for your keyboard, and remove the existing **English (US)** layout. Close the window.
 
 Double click on the **Install Linux Mint** icon. Following information or selections can be provided, when required for:
 * Language: English
@@ -64,24 +64,23 @@ Double click on the **Install Linux Mint** icon. Following information or select
 * Username: developer (or any other username - the text below uses `developer`)
 * Password: choose one
 
-At the end of the installation, restart. When you get the message **Please remove the installation medium, then press ENTER:**, click the Enter key.
+At the end of the installation, restart. When you get the message **Please remove the installation medium, then press ENTER:**, press the Enter key.
 
 Log in as *developer* user. Close the **Welcome to Linux Mint** window.
 
-In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. The file manager should open, displaying a list of files. Open a terminal (main menu and **System > Xfce Terminal**, or the terminal icon on the lower left-hand corner). Go into the mounted CD image and run the Linux script as root user:
-```shell
-$ cd /media/developer/VBox_GAs_7.1.6
-$ sudo ./VBoxLinuxAdditions.run
-```
+In the VirtualBox menu, select **Devices > Insert Guest Additions CD image...**. A window asks you if you would like to run medium software. Click the **Run** button.
+
 The password you are then asked for is the one you chose at installation time.
 
-When execution is done, close the terminal.
+When execution is done, press the Return key (i.e. the Enter key).
 
-Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window which appears, click the **Ignore this report** button for the system restore utility. Close the system report window.
+If the VirtualBox window is too small, you can enlarge it.
+
+Click on the system report icon, in the lower right-hand corner: ![icon](images/systemReportIcon.png). In the **System Reports** window which appears, click the **Ignore this report** button for the system restore utility. Close the system reports window.
 
 Click the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click the **OK** button. Click the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click the **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Then click the **Install Updates** button, and accept additional changes.
 
-When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu**, logout icon in the top right-hand corner: ![icon](images/logoutIcon.png) and then **Shut Down**).
+When the updates are done, close the update manager window, and shutdown the Linux Mint VM (**Linux Mint main menu**, shutdown icon: ![icon](images/shutdownIcon.png)).
 
 With VirtualBox menu, set following settings parameters for the VM:
 * **General > Advanced > Shared Clipboard**: **Bidirectional**
@@ -90,14 +89,14 @@ With VirtualBox menu, set following settings parameters for the VM:
 
 Start the VM.
 
-To grant access to the virtual serial link that will be used to program the microcontroller boards, open a terminal (main menu and **System > Xfce Terminal**, or the terminal icon on the lower left-hand corner), and add the user to the *dialout* group:
+To grant access to the virtual serial link that will be used to program the microcontroller boards, open a terminal (main menu and the terminal, or the terminal icon on the lower left-hand corner), and add the user to the *dialout* group:
 
 ```shell
 $ sudo adduser developer dialout
 ```
 
 To interact with a board over the virtual serial link, install *miniterm*:
-* From the main menu: **Settings > Software Manager**
+* From the main menu, click the Software Manager icon: ![icon](images/softwareManagerIcon.png)
 * Search for `pyserial`
 * Click the displayed **Python3-serial** box
 * Click the **Install** button
@@ -120,20 +119,21 @@ You can resize the VM window. If you want to make it full screen, press Right Co
 
 I don't like the default configuration of the terminal, so I modify it:
 * Start a terminal
-* **Edit > Preferences** and ensure that you are on the **Appearance** tab
-* For **Default geometry**, set **columns** to 120
-* Go to the **Colors** tab
-* For **Presets**, select **Tango**
+* **Edit > Preferences** and ensure that you are on the **Text** tab
+* For **Initial terminal size**, set **columns** to 120
 * Close the window
 
 And I add the *System Monitor* applet to the Panel:
 * Right-click on the Panel
-* Select **Panel > Add New Items...**
-* Select **System Load Monitor**
-* Click on the **Add** button and close the window
+* Select **Applets**
+* Select the **Download** tab
+* Select the **System Monitor** applet, and click its install button
+* Go back to the **Manage** tab, select it and click the + button
+* Close the applets window
 * Right-click on the applet that was added to the Panel
-* Select **Properties**
-* Deactivate **Swap monitor** and **Uptime monitor**
+* Select **Configure...**
+* On the **Common** tab, enable **Draw border**
+* Disable swap and load displays
 * Close the window
 
 To share files between the VM and the host computer, use VirtualBox menu:
@@ -146,24 +146,16 @@ To share files between the VM and the host computer, use VirtualBox menu:
 
 For the file manager, I prefer to get a list of files instead of icons. So:
 * **Edit > Preferences...**
-* In the **Display** tab, select **List View** for **View new folders using::**
+* In the **Views** page, select **List View** for **View new folders using::**
 * Close the window
-* Stop and restart a file manager window
 
 # Update
 
 When all packages are up-to-date, the update manager icon (see above) does not display the orange disk. If this disk appears, it means it's time to perform an update. To do this, click on the icon (see above).
 
-# Exporting an appliance
+# Keeping a copy of the virtual machine
 
-Export a copy of the virtual machine as it is now, so that next time you want to set up an environment based on this type of VM, you don't have to go through all the steps above:
-* Shutdown Linux Mint
-* In VirtualBox Manager window, select **File > Export Appliance...**
-* Select the virtual machine
-* For **Format settings > Format**, I use **Open Virtualization Format 2.0**
-* Click on **Finish** button
-
-Save the resulting `.ova` file in a safe place. Next time you need to create a new VM, import it from VirtualBox Manager with **File > Import Appliance...**.
+If you plan to reuse the newly created Linux Mint virtual machine, shutdown it. Then, copy the directory containing the virtual machine files to a safe place.
 
 
 
