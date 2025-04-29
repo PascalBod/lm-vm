@@ -85,7 +85,7 @@ When the updates are done, close the update manager window, and shutdown the Lin
 With VirtualBox menu, set following settings parameters for the VM:
 * **General > Advanced > Shared Clipboard**: **Bidirectional**
 * **Display > Screen > Video Memory**: set it to 128 MB
-* **USB**: select **USB 3.0*
+* **USB**: select **USB 3.0**
 
 Start the VM.
 
