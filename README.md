@@ -1,7 +1,3 @@
-### Table of contents
-
-Click on the ![](images/tocIcon.png) icon, on the right-hand side above.
-
 # Overview
 
 I create a distinct virtual machine for each of my embedded software projects. Thus I don't have to handle potential configuration conflicts between different development environments.
@@ -17,7 +13,8 @@ This short guide describes how I create the virtual machine (VM).
   * Basic knowledge of Linux (knowing the most common commands...)
   * Basic knowledge of VirtualBox (knowing how to create a virtual machine...)
 
-**Note:** For many development environments, 4 GB or 8 GB of memory are enough. For [*STM32CubeIDE*](https://www.st.com/en/development-tools/stm32cubeide.html), 16 GB seems to be a minimum.
+> [!NOTE]
+> For many development environments, 4 GB or 8 GB of memory are enough. For [*STM32CubeIDE*](https://www.st.com/en/development-tools/stm32cubeide.html), 16 GB seems to be a minimum.
 
 # VirtualBox installation
 
@@ -25,11 +22,11 @@ This short guide describes how I create the virtual machine (VM).
 
 My host OS being Linux Mint, I use the Ubuntu version of VirtualBox.
 
-At the time of writing, the latest version of VirtualBox is [7.1.6](https://www.virtualbox.org/wiki/Downloads).
+At the time of writing, the latest version of VirtualBox is [7.1.8](https://www.virtualbox.org/wiki/Downloads).
 
 # Creation of the VM
 
-[Download Linux Mint, Cinnamon edition](https://linuxmint.com/download.php) ISO image. At the time of writing, version is 22.1.
+Download the [Linux Mint 21.3 Cinnamon ISO image](https://linuxmint.com/download_all.php).
 
 Verify the integrity of the downloaded file.
 
@@ -54,7 +51,7 @@ If your keyboard layout is not QWERTY, click on the main-menu icon ![icon](image
 
 Select the **Layouts** tab. Add the layout for your keyboard, and remove the existing **English (US)** layout. Close the window.
 
-Double click on the **Install Linux Mint** icon. Following information or selections can be provided, when required for:
+Double click on the **Install Linux Mint** icon. Provide following information or selections, when required for:
 * Language: English
 * Keyboard layout: the one for your keyboard
 * Install multimedia codecs
@@ -121,7 +118,7 @@ I don't like the default configuration of the terminal, so I modify it:
 * Start a terminal
 * Right-click in the terminal window
 * **Edit > Preferences > General** and tick **Show menubar by default in new terminals**
-* **Edit > Preferences Unnamed** and set **columns** to 120
+* **Edit > Preferences > Unnamed** and set **columns** to 120
 * Close the window
 
 And I add the *System Monitor* applet to the Panel:
