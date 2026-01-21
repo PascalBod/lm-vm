@@ -124,8 +124,8 @@ You can resize the VM window. If you want to make it full screen, press Right Co
 I don't like the default configuration of the terminal, so I modify it:
 * Start a terminal
 * Right-click in the terminal window
-* **Edit > Preferences > General** and tick **Show menubar by default in new terminals**
-* **Edit > Preferences Unnamed** and set **columns** to 120
+* **Preferences > General** and tick **Show menubar by default in new terminals**
+* **Preferences > Unnamed** and set **columns** to 120
 * Close the window
 
 And I add the *System Monitor* applet to the Panel:
