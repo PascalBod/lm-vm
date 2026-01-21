@@ -32,8 +32,8 @@ At the time of writing, the latest version of VirtualBox is [7.1.6](https://www.
 [Download Linux Mint, Cinnamon edition](https://linuxmint.com/download.php) ISO image. At the time of writing, version is 22.1.
 
 > [!Note]
-> 22.1 is not the latest version of Linux Mint. The latest one is 22.3, but it ships with a kernel which
-> has issues with VirtualBox. Consequen tly, I stick with 22.1.
+> 22.1 is not the latest version of Linux Mint. The latest one is 22.3 (at the time of writing), but it ships 
+> with a kernel which has issues with VirtualBox. Consequently, I stick with 22.1.
 
 Verify the integrity of the downloaded file.
 
