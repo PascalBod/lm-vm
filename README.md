@@ -156,8 +156,7 @@ When all packages are up-to-date, the update manager icon (see above) does not d
 
 # Keeping a copy of the virtual machine
 
-If you plan to reuse the newly created Linux Mint virtual machine, shutdown it. Then, copy the directory containing the virtual machine files to a safe place.
-
+If you plan to reuse the newly created Linux Mint virtual machine, shutdown it. Then, use **File / Export Appliance...**.
 
 
 
